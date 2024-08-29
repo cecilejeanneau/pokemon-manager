@@ -1,1 +1,6 @@
-<p>generations works!</p>
+<h1 class="uppercase">Générations de pokémons</h1>
+<ul *ngIf="generations | async as generations_api" class="m-auto max-w-fit">
+	<li *ngFor="let generation of generations_api">
+		{{ generation.name }} · {{ generation.url }}
+
+</ul>
