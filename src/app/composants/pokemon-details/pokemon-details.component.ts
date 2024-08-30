@@ -18,8 +18,8 @@ export class PokemonDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.pokemonService.getPokemonDetails(id).subscribe((pokemon: Pokemon | undefined) => this.pokemon = pokemon);
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.pokemonService.getPokemonDetails(id).subscribe(pokemon => this.pokemon = pokemon);
   }
 }
 

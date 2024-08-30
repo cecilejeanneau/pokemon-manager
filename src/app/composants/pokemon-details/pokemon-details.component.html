@@ -1,10 +1,13 @@
 <!-- pokemon-details.component.html -->
-<div *ngIf="pokemon" class="pokemon-details">
-	<h2 class="text-3xl font-bold mb-4">{{ pokemon?.name }}</h2>
-	<img [src]="pokemon?.image" alt="{{ pokemon?.name }}" class="w-48 mx-auto mb-4">
-	<p class="text-lg mb-2"><strong>Type:</strong> {{ pokemon?.type }}</p>
-	<p class="text-lg mb-2"><strong>Height:</strong> {{ pokemon?.height  }} m</p>
-	<p class="text-lg mb-2"><strong>Weight:</strong> {{ pokemon?.weight }} kg</p>
+
+<div *ngIf="pokemon" class="pokemon-details flex flex-col content-between">
+		<h2 class="text-3xl text-center text-deep-pink uppercase font-bold mt-8 mb-4">{{ pokemon.name }}</h2>
+		<img [src]="pokemon.image" alt="{{ pokemon.name }}" class="w-48 mx-auto mb-4">
+		<div class="max-w-44 m-auto mb-4">
+			<p class="text-lg mb-2"><strong>Type:</strong> {{ pokemon.type }}</p>
+			<p class="text-lg mb-2"><strong>Height:</strong> {{ pokemon.height  }} m</p>
+			<p class="text-lg mb-2"><strong>Weight:</strong> {{ pokemon.weight }} kg</p>
+		</div>
+		<a [routerLink]="['/pokemons']" class="text-dark-cyan border boder-dark-cyan rounded-full p-2 no-underline text-center max-w-24 m-auto">Back to Pokémon List</a>
   </div>
-  
-	{# <a [routerLink]="['/pokemons']" class="text-blue-500 underline">Back to Pokémon List</a> #}
+ 

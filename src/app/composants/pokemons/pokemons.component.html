@@ -1,31 +1,31 @@
 <div class="container mx-auto px-4">
 	<h2 class="text-2xl font-bold my-4">Les 6 premiers Pokémons</h2>
 	<p class="text-lg mb-4">{{ getPokemonCount() }} pokémons dans la DB</p>
-	<ul class="list-none grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+	<ul class="list-none grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
 	  <li *ngFor="let pokemon of pokemons"
-		  class="bg-white shadow rounded-full p-4 mb-4 flex justify-evenly items-center opacity-75">
+		  class="bg-white shadow rounded-full min-w-[23.875rem] max-w-[23.875rem] sm:min-w-[18.75rem] sm:max-w-[18.75rem] md:min-w-[15rem] md:max-w-[15rem] px-9 py-3 sm:px-8 md:p-4 md:mb-4 flex justify-evenly items-center opacity-75">
 		<div class="last:mb-4">
-		  <h3 class="text-center text-xl font-medium font-oswald text-deep-pink uppercase">{{ pokemon.name }}</h3>
-		  <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="w-24 m-auto">
-		  <p class="text-sm text-gray-600">Type : {{ pokemon.type }}</p>
-		  <p class="text-sm text-gray-600">Taille : {{ formatNumber(pokemon.height) }} m</p>
-		  <p class="text-sm text-gray-600">Poids : {{ formatNumber(pokemon.weight) }}</p>
+		  <h3 class="text-center text-2xl md:text-xl font-medium font-oswald text-deep-pink uppercase">{{ pokemon.name }}</h3>
+		  <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="w-60 sm:w-36 md:w-24 m-auto">
+		  <p class="text-lg md:text-sm ml-10 sm:m-0 md:m-0 text-gray-600">Type : {{ pokemon.type }}</p>
+		  <p class="text-lg md:text-sm ml-10 sm:m-0 md:m-0 text-gray-600">Taille : {{ formatNumber(pokemon.height) }} m</p>
+		  <p class="text-lg md:text-sm ml-10 sm:m-0 md:m-0 text-gray-600">Poids : {{ formatNumber(pokemon.weight) }}</p>
 		</div>
 	  </li>
 	</ul>
 	
 	<h2 class="text-2xl font-bold my-4">Pokémons de l'API</h2>
 	<p *ngIf="apiPokemons | async as pokemons_api" class="text-lg mb-4 ">{{pokemons_api.count}} pokémons dans la DB</p>
-	<ul *ngIf="apiPokemons | async as pokemons_api" class="list-none grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+	<ul *ngIf="apiPokemons | async as pokemons_api" class="list-none grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
 	  <li *ngFor="let pokemon of pokemons_api.pokemons"
-		  class="bg-white shadow rounded-full p-4 mb-4 flex justify-evenly items-center opacity-75">
+		  class="bg-white shadow rounded-full min-w-[23.875rem] max-w-[23.875rem] sm:min-w-[18.75rem] sm:max-w-[18.75rem] md:min-w-[15rem] md:max-w-[15rem] px-9 py-3 sm:px-8 md:p-4 md:mb-4 flex justify-evenly items-center opacity-75">
 		<div class="last:mb-4">
-		  <a [href]="'https://pokeapi.co/api/v2/pokemon/' + pokemon.id" target="_blank">
-			<h3 class="text-center text-xl font-medium font-oswald text-deep-pink uppercase">{{ pokemon.name }}</h3>
-		  <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="w-24 m-auto">
-		  <p class="text-sm text-gray-600">Type : {{ pokemon.type }}</p>
-		  <p class="text-sm text-gray-600">Taille : {{ formatNumber(pokemon.height) }} m</p>
-		  <p class="text-sm text-gray-600">Poids : {{ formatNumber(pokemon.weight) }}</p>
+			<a [routerLink]="['/pokemon', pokemon.id]">
+			<h3 class="text-center text-2xl md:text-xl font-medium font-oswald text-deep-pink uppercase">{{ pokemon.name }}</h3>
+		  <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="w-60 sm:w-36 md:w-24 m-auto">
+		  <p class="text-lg md:text-sm ml-10 sm:m-0 md:m-0 text-gray-600">Type : {{ pokemon.type }}</p>
+		  <p class="text-lg md:text-sm ml-10 sm:m-0 md:m-0 text-gray-600">Taille : {{ formatNumber(pokemon.height) }} m</p>
+		  <p class="text-lg md:text-sm ml-10 sm:m-0 md:m-0 text-gray-600">Poids : {{ formatNumber(pokemon.weight) }}</p>
 		  </a>
 		</div>
 	  </li>
